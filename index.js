@@ -142,7 +142,12 @@ function PCStart(){
     var SexBox = document.getElementById("Sex")
     var Sex;
     const PCGenerator = document.getElementById("Generator")
-    PCGenerator.innerHTML = ''
+    if (Restart = 1){
+        const Character = document.getElementById("Character")
+        if (Character!= null){
+            Character.remove()
+        }
+    }
     const Age = 17 + Math.floor(Math.random() * ((6-1)+1) + 1) + Math.floor(Math.random() * ((6-1)+1) + 1)
 
     var element = document.getElementById('Terminal');
@@ -184,8 +189,9 @@ function PCStart(){
     }
     else {PlayerStats.equp = Equipment}
     if (Sex == "0"){ PlayerStats.name = GRV(MaleNames)} else { PlayerStats.name = GRV(FemaleNames)}
-    
-    PCGenerator.insertAdjacentHTML('afterbegin', `<hr id="HorLine"> 
+
+
+    PCGenerator.insertAdjacentHTML('afterbegin',`<div id="Character"><hr id="HorLine">
     <b id="PCName">${PlayerStats.name} </b> (${PlayerStats.concept}) ${UPPConv[Char1]}${UPPConv[Char2]}${UPPConv[Char3]}${UPPConv[Char4]}${UPPConv[Char5]}${UPPConv[Char6]} Возраст ${Age} Ранг 1 - Агент <br> \
     ${PlayerStats.skill} <br>
     <b>Ретрогеника: </b> ${PlayerStats.augsStr} <br>
@@ -197,7 +203,7 @@ function PCStart(){
     <b>Внешность: </b> ${PlayerStats.looks} <br> 
     <b>Мотивация: </b> ${PlayerStats.Motivation} <br>
     <b>Отличительные Черты: </b> ${PlayerStats.Traits}
-    `)
+    </div>`)
     var PCGenButton = document.getElementById("submit")
     PCGenButton.value = "Создать нового"
     Restart = 1
