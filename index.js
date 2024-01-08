@@ -41,12 +41,8 @@ function randAugs(){
     var selected
     while (points > 0){
         augsAvel = augsAvel.filter(augsAvel => augsAvel.cost <= points)
-        console.log(augsAvel.length)
-        console.log(augsAvel)
-        console.log(points)
         if (augsAvel.length >= 0){
         selected = GRV(augsAvel)
-        console.log(selected)
         augsEqup.push(selected)
         points = points - selected.cost
         }
@@ -78,11 +74,8 @@ function randSkills(ConSkill, EDU){
         skills.push(ranRes)
         filtered.splice(filtered.indexOf(ranRes), 1)
     }
-    console.log(EDU)
     if (EDU >= 2, EDU <= 3){
         res = skills.slice(0,2)
-        console.log(skills)
-        console.log(res)
         return res
     }
     else if (EDU >= 4, EDU <= 6){
@@ -121,8 +114,6 @@ function ConceptSet(){
     {concept: "Вольный коп", skill:" Взятки-1", equp:"Кевларовый жилет скрытого ношения"},
     {concept: "Мастер единоборств", skill:[" Карате-1"," Джиу-джитсу-1"], equp:""}]
     var Opt = GRV(Concepts);
-    console.log(typeof(Opt.skill))
-    console.log(typeof(Opt.equp))
     if (Opt.concept == "Спецназовец"){
         var rand = Math.floor(Math.random()*2)
         Opt.skill = Opt.skill[rand]
@@ -135,11 +126,9 @@ function ConceptSet(){
     }
     else if (typeof(Opt.skill)=="object"){
         Opt.skill = Opt.skill[Math.floor(Math.random()*Opt.skill.length)]
-        console.log("RANDOM SKILL")
     }
     else if (typeof Opt.equp == "object"){
         Opt.equp = GRV(Opt.equp)
-        console.log("RANDOM EQUIP")
     }
     return Opt
 }
@@ -150,19 +139,15 @@ function Nemesis(){
 }
 
 function PCStart(){
-    // var RanUPP = document.getElementById("RanUPP").checked
-    // var RanConcept = document.getElementById("RanConcept").checked
-    // var RanRetro = document.getElementById("RanRetro").checked
     var SexBox = document.getElementById("Sex")
     var Sex;
     const PCGenerator = document.getElementById("Generator")
-    // PCGenerator.innerHTML = ''
+    PCGenerator.innerHTML = ''
     const Age = 17 + Math.floor(Math.random() * ((6-1)+1) + 1) + Math.floor(Math.random() * ((6-1)+1) + 1)
 
     var element = document.getElementById('Terminal');
     var positionInfo = element.getBoundingClientRect();
     var height = positionInfo.height;
-    console.log(height)
     element.style.height = height
     PCGenerator.style.height = height
 
@@ -186,7 +171,6 @@ function PCStart(){
     
     PlayerStats = ConceptSet()
     PlayerStats.skill = randSkills(PlayerStats.skill, Char5)
-    console.log(PlayerStats)
     PlayerStats.contacts = randContact(PlayerStats.skill)
     PlayerStats.augs = randAugs()
     PlayerStats.augsStr = PlayerStats.augs.map(function(val){ return val.name})
@@ -200,8 +184,6 @@ function PCStart(){
     }
     else {PlayerStats.equp = Equipment}
     if (Sex == "0"){ PlayerStats.name = GRV(MaleNames)} else { PlayerStats.name = GRV(FemaleNames)}
-    console.log(`Sex = ${Sex}`)
-    console.log(MaleNames[Math.floor(Math.random()*MaleNames.length)])
     
     PCGenerator.insertAdjacentHTML('afterbegin', `<hr id="HorLine"> 
     <b id="PCName">${PlayerStats.name} </b> (${PlayerStats.concept}) ${UPPConv[Char1]}${UPPConv[Char2]}${UPPConv[Char3]}${UPPConv[Char4]}${UPPConv[Char5]}${UPPConv[Char6]} Возраст ${Age} Ранг 1 - Агент <br> \
@@ -218,7 +200,5 @@ function PCStart(){
     `)
     var PCGenButton = document.getElementById("submit")
     PCGenButton.value = "Создать нового"
-    // PCGenerator.insertAdjacentHTML('beforeend', "I\'m a new element,\
-    //  but I\'m not green <br>")
     Restart = 1
 }
