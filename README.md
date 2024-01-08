@@ -1,1 +1,3 @@
-# TheVarik.github.io
+# Zaibatsu Генератор персонажа
+
+генератор персонажа для нри Zaibatsu
