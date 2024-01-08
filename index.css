@@ -1,0 +1,85 @@
+@font-face {
+    font-family: 'Hack';
+    src: url(//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.css);
+    display: swap;
+  }
+
+html, body {
+    font-family: 'Hack', monospace; /* Семейство шрифтов */
+    font-size: 11pt; /* Размер основного шрифта в пунктах  */
+    background-color:rgb(10, 0, 30); /* Цвет фона веб-страницы */
+    color: #333; /* Цвет основного текста */ 
+    height: 100%;
+    margin: 0;
+  }
+
+#submit{
+  flex-grow: 1 ;
+}
+
+#PCName{
+  font-size: large;
+}
+
+#title{
+  color: blueviolet;
+  font-style: italic;
+  border-bottom: 2px solid blueviolet;
+}
+
+#Terminal{
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0;
+
+  overflow-x: hidden;
+  width: 40rem;
+  background-color: rgb(10, 0, 30);
+  border: solid 2px rgb(20, 200, 20);
+  padding-left: 2px;
+  padding-right: 2px;
+  height: 100%
+}
+
+#Settings{
+    display: flex;
+    flex-direction: column;
+    padding-top: 1%;
+}
+#submit{
+  background-color: rgb(20, 200, 20);
+  color: rgb(10, 0, 30);
+  border-style: outset;
+  font-family: "Hacl", monospace;
+}
+
+#Sex{
+  background-color: rgb(20, 200, 20);
+  color: rgb(10, 0, 30);
+  border-style:outset;
+  font-family: 'Hack', monospace;
+}
+
+hr {
+  border: 1px solid rgb(20, 200, 20);
+  color: rgb(20, 200, 20);
+  background-color: rgb(20, 200, 20);
+}
+
+#divider{
+  border: 1px dotted rgb(20, 200, 20);
+  border-style:  none none dotted;
+  color: transparent;
+  background-color: transparent;
+}
+
+#GenCountainer{
+  color: rgb(20, 200, 20);
+  background-color: transparent;
+
+  overflow-y: hidden;
+  height: fit-content;
+  font-family: 'Hack', monospace;
+}
+#Generator{
+}
